@@ -12,5 +12,15 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    //return view('welcome');
+    return 'The Vinyl Shop';
 });
+
+Route::view('contact-us', 'contact');
+
+Route::prefix('admin')->group(function () {
+    Route::redirect('/', 'records');
+    Route::get('records', 'Admin\RecordController@index');
+});
+
+
